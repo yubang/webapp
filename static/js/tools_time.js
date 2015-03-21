@@ -3,6 +3,12 @@ var time=0;
 var useTime=0;
 
 function startOrStop(){
+    if(isNaN(parseInt($("#time").val()))){
+        return ;
+    }else if(parseInt($("#time").val())<=0){
+        return;
+    }
+    
     if(startSign){
         stop();
     }else{
@@ -12,6 +18,7 @@ function startOrStop(){
 }
 
 function start(){
+    $("#button2").show();
     $("#button").html("暂停");
     time=parseInt($("#time").val())*60;
     $("#time").attr("readonly","readonly");
@@ -24,6 +31,7 @@ function stop(){
 function cancel(){
     $("#m2").html(parseInt($("#m2").html())+1);
     startSign=false;
+    $("#button2").hide();
     time=0;
     useTime=0;
     $("#time").removeAttr("readonly");
@@ -33,7 +41,7 @@ function cancel(){
 function success(){
     $("#m1").html(parseInt($("#m1").html())+1);
     $("#button").html("开始");
-    $("#button2").attr("display","");
+    $("#button2").hide();
     $("#time").removeAttr("readonly");
     startSign=false;
     time=0;
@@ -63,5 +71,6 @@ function analyTime(){
 }
 
 $(document).ready(function(){
+    $("#button2").hide();
     setInterval("analyTime()",1000);
 });
