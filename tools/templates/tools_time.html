@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>番茄时间</title>
+        {% include 'css.html' %}
+    </head>
+    <body>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">显示区</div>
+            <div class="panel-body">
+                <div>
+                    用时：<font id="useTime">还没有开始计时！</font>
+                </div>
+                <div>
+                    进度：
+                    <div class="progress">
+                        <div id="jindu" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%;">
+                            0%
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    完成：<font id="m1">0</font>个
+                    中止：<font id="m2">0</font>个
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">操作</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">周期时间（分钟）：</label>
+                    <div class="col-sm-10">
+                        <input type="text" placeholder="请输入周期时间" class="form-control" id="time">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <a id="button" href="javascript:startOrStop();" class="btn btn-info">开始</a>
+                    <a id="button2" href="javascript:cancel();" class="btn btn-danger">终止</a>
+                </div>
+            </div>
+        </div>
+        
+        {% include 'js.html' %}
+        <script src="/static/js/tools_time.js"></script>
+    </body>
+</html>

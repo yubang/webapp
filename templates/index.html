@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>主页</title>
+        {% include 'css.html' %}
+    </head>
+    <body>
+        
+        <div class="panel panel-info">
+            <div class="panel-heading">网站公告</div>
+            <div class="panel-body">
+                
+                <div class="alert alert-success" role="alert">
+                    暂无公告
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="panel panel-success">
+            <div class="panel-heading">应用列表</div>
+            <div class="panel-body">
+                <p>
+                    <a href="tools/time">番茄时间</a>
+                </p>
+            </div>
+        </div>
+            
+        {% include 'js.html' %}
+    </body>
+</html>
